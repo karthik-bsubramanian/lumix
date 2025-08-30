@@ -2,6 +2,16 @@ import { Button } from "./ui/button"
 import Image from "next/image"
 import balloon from "../public/baloon.png"
 import { asimovian } from "@/style/font"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
 
 
 export const Navbar = () => {
@@ -14,6 +24,19 @@ export const Navbar = () => {
             />
             <span className={`${asimovian.className}`}>Lumix</span>
         </div>
+            
+        <NavigationMenu>
+            <NavigationMenuList>
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger>Create a room</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <NavigationMenuLink><div className="w-20">Voice Call</div></NavigationMenuLink>
+                        <NavigationMenuLink>Video room</NavigationMenuLink>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+            </NavigationMenuList>
+        </NavigationMenu>
+
 
         <Button
             variant="default"

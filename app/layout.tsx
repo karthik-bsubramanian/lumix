@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   description: "All in One Brainstorming Platform",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en">
       <body
