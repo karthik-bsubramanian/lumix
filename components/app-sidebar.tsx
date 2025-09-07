@@ -17,6 +17,7 @@ import {
     SidebarFooter,
     SidebarMenuSub,
     SidebarMenuSubItem,
+    SidebarGroupLabel,
 } from "@/components/ui/sidebar"
 import { useSidebar } from "@/components/ui/sidebar"
 import { SidebarProfile } from "./ProfileButton";
@@ -24,6 +25,7 @@ import { Collapsible,CollapsibleTrigger,CollapsibleContent } from "@radix-ui/rea
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { JoinDiscordButton } from "./JoinDiscord";
 
 
 const items = [
@@ -90,6 +92,18 @@ export function AppSidebar() {
                             </SidebarMenu>
                         </SidebarGroupContent>
                     </SidebarGroup>
+                    <SidebarMenu className="mt-4">
+                        <SidebarGroup>
+                            <SidebarGroupLabel className="text-xs">
+                                Got a suggestion? Need help?
+                            </SidebarGroupLabel>
+                        </SidebarGroup>
+                        <SidebarMenuItem>
+                                    <SidebarMenuSubItem className="flex justify-center">
+                                        <JoinDiscordButton/>
+                                    </SidebarMenuSubItem>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
                 </SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupContent>
