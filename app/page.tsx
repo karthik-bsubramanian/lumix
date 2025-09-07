@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { client } from "@/lib/appwrite"
+import { Navbar } from "@/components/Navbar";
 
 export default function Home() {
   async function ping(){
@@ -10,9 +11,11 @@ export default function Home() {
   }
   return (
   <div>
+    <Navbar/>
       <Button onClick={ping}>
           Send signal
       </Button>
   </div>
   );
 }
+
