@@ -26,6 +26,7 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { JoinDiscordButton } from "./JoinDiscord";
+import { useTheme } from "next-themes";
 
 
 const items = [
@@ -39,6 +40,7 @@ const items = [
 export function AppSidebar() {
     const { state } = useSidebar();
     const [open, setOpen] = useState(false);
+    const { theme, setTheme } = useTheme();
     return (
         <>
             <Sidebar variant="floating" collapsible="icon" className="outline-none">
@@ -128,10 +130,10 @@ export function AppSidebar() {
                     <SidebarMenu>
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
-                                <div className="flex justify-between cursor-pointer">
+                                <div className="flex justify-between cursor-pointer" onClick={()=> setTheme(theme === "dark" ? "light":"dark")}>
                                     {state==="expanded" 
                                     &&
-                                    <Button variant="ghost">
+                                    <Button variant="ghost" >
                                         Theme
                                     </Button> }
                                     <Moon />
