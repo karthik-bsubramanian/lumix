@@ -144,3 +144,7 @@
     --sidebar-ring: oklch(0.439 0 0);
   }
 }
+
+@theme {
+  --color-back: #37353E; /* Replace with your desired hex code */
+}
