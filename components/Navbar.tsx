@@ -1,6 +1,6 @@
 import { Button } from "./ui/button"
 import Image from "next/image"
-import balloon from "../public/baloon.png"
+import Logo from "../public/Logo_lumix.png"
 import { asimovian } from "@/style/font"
 import {
     NavigationMenu,
@@ -19,7 +19,7 @@ export const Navbar = () => {
         <div className="rounded-lg flex w-full justify-between mt-2 items-center p-1 shadow-[6px_0_6px_5px_rgba(0,0,0,0.9)] shadow-accent ">
             <div className="flex gap-2 items-center text-2xl">
                 <Image
-                    src={balloon}
+                    src={Logo}
                     className="h-10 w-10"
                     alt="ballon"
                 />

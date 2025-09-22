@@ -1,19 +1,43 @@
 "use client";
 
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-export default function Home(){
-    return <div>
-        <CardHoverEffectDemo/>
+import { DottedLineChart } from "@/components/DottedLineChart";
+
+export default function Home() {
+  const chartData = [
+  { month: "January", value: 186 },
+  { month: "February", value: 305 },
+  { month: "March", value: 237 },
+  { month: "April", value: 73 },
+  { month: "May", value: 209 },
+  { month: "June", value: 214 },
+];
+
+  return <div>
+    <CardHoverEffect />
+    <div className="mx-10">
+      <div className="h-full w-full sm:grid sm:grid-cols-3 flex flex-col gap-6 mb-10">
+        <div className="col-span-1 w-full h-full bg-amber-300 rounded-xl">
+          
+        </div>
+        <div className="col-span-2">
+          <DottedLineChart chartData={chartData} />
+        </div>
+      </div>
     </div>
+  </div>
 }
 
-function CardHoverEffectDemo() {
+
+
+function CardHoverEffect() {
   return (
     <div className="w-full mx-auto px-8">
       <HoverEffect items={cards}/>
     </div>
   );
 }
+
 export const cards = [
   {
     number: 1,
@@ -31,12 +55,12 @@ export const cards = [
     number: 3,
     description: "Access all the shared materials",
     buttonlabel: "Shared materials",
-    path: ""
+    path: "/videos/Short_Video_of_Shared_Materials.mp4"
   },
   {
     number: 4,
     description: "Invite friends to Lumix and start brainstorming",
     buttonlabel: "Invite friends",
-    path: ""
+    path: "/videos/Short_Video_of_Invite_Friends.mp4"
   },
 ];
