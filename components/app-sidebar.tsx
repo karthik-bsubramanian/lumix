@@ -1,7 +1,8 @@
 "use client";
 
 import { BookOpen, ChevronDown, Home, Moon, Podcast} from "lucide-react"
-import logo from "@/public/baloon.png"
+import logo from "@/public/Logo_lumix.png"
+import darklogo from '@/public/lumix_logo_dark.png'
 import Image from "next/image"
 import { asimovian } from "@/style/font"
 import {
@@ -46,7 +47,7 @@ export function AppSidebar() {
             <Sidebar variant="floating" collapsible="icon" className="outline-none">
                 <SidebarHeader>
                     <div className="flex gap-3">
-                        <Image className="h-7 w-7" src={logo} alt="Lumix" />
+                        <Image className="h-7 w-7" src={theme === "dark" ? logo : darklogo} alt="Lumix" />
                         {state === "expanded" && <span className={`${asimovian.className} font-bold text-xl`}>Lumix</span>}
                     </div>
                 </SidebarHeader>

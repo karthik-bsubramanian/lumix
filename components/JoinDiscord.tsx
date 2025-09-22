@@ -14,7 +14,7 @@ export function JoinDiscordButton() {
     >
       <Image src={discord} alt="discord" height={15} width={15}/>
       { state === "expanded" &&
-      <span className="text-xs text-white">Join Us on Discord</span>
+      <span className="text-xs text-white">Join the Community</span>
         }
     </Button>
   )
