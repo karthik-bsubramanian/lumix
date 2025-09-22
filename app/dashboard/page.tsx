@@ -2,6 +2,7 @@
 
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { DottedLineChart } from "@/components/DottedLineChart";
+import { OnBoarding } from "@/components/OnBoarding";
 
 export default function Home() {
   const chartData = [
@@ -17,8 +18,8 @@ export default function Home() {
     <CardHoverEffect />
     <div className="mx-10">
       <div className="h-full w-full sm:grid sm:grid-cols-3 flex flex-col gap-6 mb-10">
-        <div className="col-span-1 w-full h-full bg-amber-300 rounded-xl">
-          
+        <div className="col-span-1 border-1 bg-card w-full h-full rounded-xl shadow-sm">
+          <OnBoarding/>
         </div>
         <div className="col-span-2">
           <DottedLineChart chartData={chartData} />
