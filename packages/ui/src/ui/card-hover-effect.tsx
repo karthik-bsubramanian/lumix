@@ -1,13 +1,13 @@
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 
 import React, { useState } from "react";
-import { Button } from "./button";
-import VideoPlayer from "../VideoPlayer";
 
 export const HoverEffect = ({
   items,
   className,
+  VideoPlayerComponent,
+  ButtonComponent,
 }: {
   items: {
     number: number;
@@ -16,6 +16,12 @@ export const HoverEffect = ({
     path: string;
   }[];
   className?: string;
+  VideoPlayerComponent?: React.ComponentType<{ path: string }>;
+  ButtonComponent?: React.ComponentType<{ 
+    variant?: string; 
+    className?: string; 
+    children: React.ReactNode; 
+  }>;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -51,14 +57,20 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card className="shadow-[1px_1px_3px_1px_rgba(0,0,0,0.1)] dark:border dark:border-white/20 rounded-2xl">
-            <VideoPlayer path={item.path}/>
+            {VideoPlayerComponent && <VideoPlayerComponent path={item.path} />}
             <CardDescription className="font-sans">{item.description}</CardDescription>
-            <Button
-              variant="outline"
-              className="cursor-pointer font-mono bg-black text-white  hover:bg-black/70 hover:text-white dark:bg-white dark:text-black dark:hover:text-black dark:hover:bg-gray-50 px-10"
-            >
-              {item.buttonlabel}
-            </Button>
+            {ButtonComponent ? (
+              <ButtonComponent
+                variant="outline"
+                className="cursor-pointer font-mono bg-black text-white  hover:bg-black/70 hover:text-white dark:bg-white dark:text-black dark:hover:text-black dark:hover:bg-gray-50 px-10"
+              >
+                {item.buttonlabel}
+              </ButtonComponent>
+            ) : (
+              <div className="cursor-pointer font-mono bg-black text-white  hover:bg-black/70 hover:text-white dark:bg-white dark:text-black dark:hover:text-black dark:hover:bg-gray-50 px-10 py-2 rounded text-center">
+                {item.buttonlabel}
+              </div>
+            )}
           </Card>
         </a>
       ))}

@@ -1,10 +1,10 @@
 "use client"
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { ChevronsUpDown,Settings,Bell,LogOut } from "lucide-react"
-import { useSidebar } from "./ui/sidebar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@repo/ui/ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui/ui/avatar"
+import { Button } from "@repo/ui/ui/button"
+import { ChevronsUpDown, Settings, Bell, LogOut } from "lucide-react"
+import { useSidebar } from "../../../packages/ui/src/ui/sidebar"
 
 export function SidebarProfile() {
   const { state } = useSidebar();
@@ -16,19 +16,19 @@ export function SidebarProfile() {
             <AvatarImage src="https://github.com/shadcn.png" alt="User avatar" />
             <AvatarFallback>SC</AvatarFallback>
           </Avatar>
-          { state === "expanded" &&
-          <div className="flex flex-col items-start">
-            <span className="text-sm font-medium">Karthik</span>
-            <span className="text-xs text-muted-foreground">Karthik@gmail.com</span>
-          </div>}
-          {state === "expanded" && <ChevronsUpDown/>}
+          {state === "expanded" &&
+            <div className="flex flex-col items-start">
+              <span className="text-sm font-medium">Karthik</span>
+              <span className="text-xs text-muted-foreground">Karthik@gmail.com</span>
+            </div>}
+          {state === "expanded" && <ChevronsUpDown />}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-max" side="right">
         {/* <DropdownMenuItem className="p-2 flex cursor-pointer">Upgrade to Pro</DropdownMenuItem> */}
-        <DropdownMenuItem className="p-2 flex cursor-pointer"><Settings/>Account</DropdownMenuItem>
-        <DropdownMenuItem className="p-2 flex cursor-pointer"><Bell/>Notifications</DropdownMenuItem>
-        <DropdownMenuItem className="p-2 flex cursor-pointer"><LogOut/>Log out</DropdownMenuItem>
+        <DropdownMenuItem className="p-2 flex cursor-pointer"><Settings />Account</DropdownMenuItem>
+        <DropdownMenuItem className="p-2 flex cursor-pointer"><Bell />Notifications</DropdownMenuItem>
+        <DropdownMenuItem className="p-2 flex cursor-pointer"><LogOut />Log out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

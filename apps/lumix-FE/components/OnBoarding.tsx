@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Progress } from "./ui/progress"
+import { Progress } from "@repo/ui/ui/progress"
 import { IconBox, IconBrain, IconBrandDiscord, IconCircleCheck, IconCircleDashed, IconCircles, IconFriends } from '@tabler/icons-react';
 
 export const OnBoarding = () => {
@@ -10,29 +10,29 @@ export const OnBoarding = () => {
         text: "Create a pod",
         buttonText: "create a pod",
         order: "1/5",
-        svg: <IconBox/>
+        svg: <IconBox />
     }, {
         text: "Invite friends",
         buttonText: "Invite",
         order: "2/5",
-        svg: <IconFriends/>
+        svg: <IconFriends />
     }, {
         text: "Assign roles",
         buttonText: "Assign roles",
         order: "3/5",
-        svg: <IconCircles/>
+        svg: <IconCircles />
     }, {
         text: "Start brainstorming",
         buttonText: "start brainstorming",
         order: "4/5",
-        svg: <IconBrain/>
-    },{
+        svg: <IconBrain />
+    }, {
         text: "Join our Discord",
         buttonText: "Join discord",
         order: "5/5",
         svg: <IconBrandDiscord />
     }
-]
+    ]
     return <div className="p-5 w-full h-full space-y-2">
         <p className="text-md font-bold dark:text-white text-black">Get your Brain cells work with Lumix</p>
         <div className="sm:flex w-full h-full gap-2 items-center flex flex-col">
@@ -63,7 +63,7 @@ function Items({ text, buttonText, order, svg }: ItemsProps) {
     return <div className="p-3 items-center space-y-1 justify-start w-full flex-1">
         <div className="flex justify-between">
             <div className="flex gap-1 sm:gap-2">
-                {done ? <IconCircleCheck/> : <IconCircleDashed/>}
+                {done ? <IconCircleCheck /> : <IconCircleDashed />}
                 <h1 className="text-md font-sm">{text}</h1>
             </div>
             <p>{order}</p>
@@ -72,7 +72,7 @@ function Items({ text, buttonText, order, svg }: ItemsProps) {
     </div>
 }
 
-function BorderButton({children, svg}:{children: React.ReactNode,svg: React.ReactNode}){
+function BorderButton({ children, svg }: { children: React.ReactNode, svg: React.ReactNode }) {
     return <div className="border-1 border-green-500/80 p-1 w-50 gap-2 flex rounded-sm items-center sm:mt-3 text-green-500/80">
         {svg}
         {children}

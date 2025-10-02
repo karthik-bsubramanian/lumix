@@ -1,8 +1,10 @@
 "use client";
 
-import { HoverEffect } from "@/components/ui/card-hover-effect";
+import { HoverEffect } from "@repo/ui/ui/card-hover-effect";
 import { DottedLineChart } from "@/components/DottedLineChart";
 import { OnBoarding } from "@/components/OnBoarding";
+import VideoPlayer from "@/components/VideoPlayer";
+import { Button } from "@repo/ui/ui/button";
 
 export default function Home() {
   const chartData = [
@@ -34,7 +36,11 @@ export default function Home() {
 function CardHoverEffect() {
   return (
     <div className="w-full mx-auto px-8">
-      <HoverEffect items={cards} />
+      <HoverEffect 
+        items={cards} 
+        VideoPlayerComponent={VideoPlayer}
+        ButtonComponent={Button}
+      />
     </div>
   );
 }

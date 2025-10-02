@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, ChevronDown, Home, Moon, Podcast} from "lucide-react"
+import { BookOpen, ChevronDown, Home, Moon, Podcast } from "lucide-react"
 import logo from "@/public/Logo_lumix.png"
 import darklogo from '@/public/lumix_logo_dark.png'
 import Image from "next/image"
@@ -19,13 +19,13 @@ import {
     SidebarMenuSub,
     SidebarMenuSubItem,
     SidebarGroupLabel,
-} from "@/components/ui/sidebar"
-import { useSidebar } from "@/components/ui/sidebar"
+} from "@repo/ui/ui/sidebar"
+import { useSidebar } from "@repo/ui/ui/sidebar"
 import { SidebarProfile } from "./ProfileButton";
-import { Collapsible,CollapsibleTrigger,CollapsibleContent } from "@radix-ui/react-collapsible";
-import { Button } from "./ui/button";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@repo/ui/ui/collapsible";
+import { Button } from "../../../packages/ui/src/ui/button";
 import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../../../packages/ui/src/ui/avatar";
 import { JoinDiscordButton } from "./JoinDiscord";
 import { useTheme } from "next-themes";
 
@@ -102,28 +102,28 @@ export function AppSidebar() {
                             </SidebarGroupLabel>
                         </SidebarGroup>
                         <SidebarMenuItem>
-                                    <SidebarMenuSubItem className="flex justify-center">
-                                        <JoinDiscordButton/>
-                                    </SidebarMenuSubItem>
+                            <SidebarMenuSubItem className="flex justify-center">
+                                <JoinDiscordButton />
+                            </SidebarMenuSubItem>
                         </SidebarMenuItem>
                     </SidebarMenu>
                 </SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                                <SidebarMenuButton><Podcast size={16}/>Pods</SidebarMenuButton>
-                                <SidebarMenuSub>
-                                    <SidebarMenuSubItem className="max-h-60 cursor-pointer overflow-y-auto">
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="The Gang"></Pod>
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="Idea a projecto"></Pod>
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="Ini illaya"></Pod>
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="Hip Hop Adhi"></Pod>
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="TVK FTW"></Pod>
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="bah bah black sheep"></Pod>
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="The Gang"></Pod>
-                                        <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="The Gang"></Pod>
-                                    </SidebarMenuSubItem>
-                                </SidebarMenuSub>
+                            <SidebarMenuButton><Podcast size={16} />Pods</SidebarMenuButton>
+                            <SidebarMenuSub>
+                                <SidebarMenuSubItem className="max-h-60 cursor-pointer overflow-y-auto">
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="The Gang"></Pod>
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="Idea a projecto"></Pod>
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="Ini illaya"></Pod>
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="Hip Hop Adhi"></Pod>
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="TVK FTW"></Pod>
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="bah bah black sheep"></Pod>
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="The Gang"></Pod>
+                                    <Pod image="https://media.tenor.com/sUOkoSh_yYAAAAAe/koopa-bah-bah.png" link="#" podName="The Gang"></Pod>
+                                </SidebarMenuSubItem>
+                            </SidebarMenuSub>
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
@@ -131,12 +131,12 @@ export function AppSidebar() {
                     <SidebarMenu>
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
-                                <div className="flex justify-between cursor-pointer" onClick={()=> setTheme(theme === "dark" ? "light":"dark")}>
-                                    {state==="expanded" 
-                                    &&
-                                    <Button variant="ghost" >
-                                        Theme
-                                    </Button> }
+                                <div className="flex justify-between cursor-pointer" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+                                    {state === "expanded"
+                                        &&
+                                        <Button variant="ghost" >
+                                            Theme
+                                        </Button>}
                                     <Moon />
                                 </div>
                             </SidebarMenuButton>

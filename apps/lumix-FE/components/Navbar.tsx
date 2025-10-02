@@ -1,6 +1,6 @@
-import { Button } from "./ui/button"
+import { Button } from "@repo/ui/ui/button"
 import Image from "next/image"
-import Logo from "../public/Logo_lumix.png"
+import Logo from "@repo/lumix/Logo_lumix.png"
 import { asimovian } from "@/style/font"
 import {
     NavigationMenu,
@@ -11,7 +11,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
+} from "@repo/ui/ui/navigation-menu"
 
 
 export const Navbar = () => {
