@@ -6,15 +6,16 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@repo/ui/ui/card";
+} from "@/components/ui/card";
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
-} from "@repo/ui/ui/chart";
-import { Badge } from "@repo/ui/ui/badge";
+} from "@/components/ui/chart";
+import { Badge } from "@/components/ui/badge";
 import { TrendingUp } from "lucide-react";
+import { JSX } from "react";
 
 const chartConfig = {
     desktop: {
@@ -30,7 +31,7 @@ type DottedLineChartProps = {
     }[]
 }
 
-export function DottedLineChart({ chartData }: DottedLineChartProps) {
+export function DottedLineChart({ chartData }: DottedLineChartProps) : JSX.Element{
     return (
         <Card>
             <CardHeader>

@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { Progress } from "@repo/ui/ui/progress"
+import { JSX, useState } from "react";
+import { Progress } from "@/components/ui/progress"
 import { IconBox, IconBrain, IconBrandDiscord, IconCircleCheck, IconCircleDashed, IconCircles, IconFriends } from '@tabler/icons-react';
 
-export const OnBoarding = () => {
+export const OnBoarding = () : JSX.Element => {
     const [progress, setProgress] = useState<number>(10);
     const items = [{
         text: "Create a pod",

@@ -1,5 +1,6 @@
-import { cn } from "../lib/utils";
+import { cn } from "../../lib/utils";
 import { AnimatePresence, motion } from "motion/react";
+import { Card, CardDescription } from "./card";
 
 import React, { useState } from "react";
 
@@ -17,11 +18,7 @@ export const HoverEffect = ({
   }[];
   className?: string;
   VideoPlayerComponent?: React.ComponentType<{ path: string }>;
-  ButtonComponent?: React.ComponentType<{ 
-    variant?: string; 
-    className?: string; 
-    children: React.ReactNode; 
-  }>;
+  ButtonComponent?: React.ComponentType<any>;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -75,57 +72,5 @@ export const HoverEffect = ({
         </a>
       ))}
     </div>
-  );
-};
-
-export const Card = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <div
-      className={cn(
-        "rounded-md h-full w-full overflow-hidden bg-white dark:bg-black border border-transparent dark:border-white/[0.1] relative z-20",
-        className
-      )}
-    >
-      <div className="relative z-50">
-        <div className="p-4">{children}</div>
-      </div>
-    </div>
-  );
-};
-export const CardTitle = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <h4 className={cn("text-black font-bold tracking-wide mt-4", className)}>
-      {children}
-    </h4>
-  );
-};
-export const CardDescription = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <p
-      className={cn(
-        "mt-2 mb-3 text-black dark:text-white tracking-wide leading-relaxed text-sm",
-        className
-      )}
-    >
-      {children}
-    </p>
   );
 };

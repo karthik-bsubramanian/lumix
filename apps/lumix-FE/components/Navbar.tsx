@@ -1,6 +1,7 @@
-import { Button } from "@repo/ui/ui/button"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import Logo from "@repo/lumix/Logo_lumix.png"
+// Logo is imported from public folder
+const logoSrc = "/Logo_lumix.png";
 import { asimovian } from "@/style/font"
 import {
     NavigationMenu,
@@ -11,17 +12,20 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     NavigationMenuViewport,
-} from "@repo/ui/ui/navigation-menu"
+} from "@/components/ui/navigation-menu"
+import { JSX } from "react";
 
 
-export const Navbar = () => {
+export const Navbar = () : JSX.Element=> {
     return <div className="mx-35 flex justify-between items-center gap-2">
         <div className="rounded-lg flex w-full justify-between mt-2 items-center p-1 shadow-[6px_0_6px_5px_rgba(0,0,0,0.9)] shadow-accent ">
             <div className="flex gap-2 items-center text-2xl">
                 <Image
-                    src={Logo}
+                    src={logoSrc}
+                    width={40}
+                    height={40}
                     className="h-10 w-10"
-                    alt="ballon"
+                    alt="Lumix logo"
                 />
                 <span className={`${asimovian.className}`}>Lumix</span>
             </div>

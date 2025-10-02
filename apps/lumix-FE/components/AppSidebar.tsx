@@ -19,13 +19,14 @@ import {
     SidebarMenuSub,
     SidebarMenuSubItem,
     SidebarGroupLabel,
-} from "@repo/ui/ui/sidebar"
-import { useSidebar } from "@repo/ui/ui/sidebar"
+} from "@/components/ui/sidebar"
+import { useSidebar } from "@/components/ui/sidebar"
 import { SidebarProfile } from "./ProfileButton";
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@repo/ui/ui/collapsible";
-import { Button } from "../../../packages/ui/src/ui/button";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
+import { Button } from "./ui/button";
 import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "../../../packages/ui/src/ui/avatar";
+import type { JSX } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { JoinDiscordButton } from "./JoinDiscord";
 import { useTheme } from "next-themes";
 
@@ -38,7 +39,7 @@ const items = [
     }
 ]
 
-export function AppSidebar() {
+export function AppSidebar() :JSX.Element {
     const { state } = useSidebar();
     const [open, setOpen] = useState(false);
     const { theme, setTheme } = useTheme();

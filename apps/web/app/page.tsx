@@ -1,5 +1,8 @@
 import Image, { type ImageProps } from "next/image";
-import { Button } from "@repo/ui/button";
+// Simple button component since @repo/ui is not available
+const Button = ({ children, className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+  <button className={className} {...props}>{children}</button>
+);
 import styles from "./page.module.css";
 
 type Props = Omit<ImageProps, "src"> & {

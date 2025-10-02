@@ -1,10 +1,10 @@
 "use client";
 
-import { HoverEffect } from "@repo/ui/ui/card-hover-effect";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { DottedLineChart } from "@/components/DottedLineChart";
 import { OnBoarding } from "@/components/OnBoarding";
 import VideoPlayer from "@/components/VideoPlayer";
-import { Button } from "@repo/ui/ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const chartData = [

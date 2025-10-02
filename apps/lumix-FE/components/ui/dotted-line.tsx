@@ -8,14 +8,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@repo/ui/ui/card";
+} from "./card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@repo/ui/ui/chart";
-import { Badge } from "@repo/ui/ui/badge";
+} from "./chart";
+import { Badge } from "./badge";
 import { TrendingUp } from "lucide-react";
 
 const chartData = [

@@ -1,5 +1,5 @@
 import { cookies } from "next/headers"
-import { SidebarInset, SidebarProvider } from "@repo/ui/ui/sidebar"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {

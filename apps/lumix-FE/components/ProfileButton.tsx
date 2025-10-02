@@ -1,12 +1,13 @@
 "use client"
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@repo/ui/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui/ui/avatar"
-import { Button } from "@repo/ui/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import { ChevronsUpDown, Settings, Bell, LogOut } from "lucide-react"
-import { useSidebar } from "../../../packages/ui/src/ui/sidebar"
+import { useSidebar } from "./ui/sidebar"
+import type { JSX } from "react"
 
-export function SidebarProfile() {
+export function SidebarProfile(): JSX.Element {
   const { state } = useSidebar();
   return (
     <DropdownMenu>
