@@ -1,6 +1,7 @@
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { Card, CardDescription } from "./card";
+import type { Button } from "./button";
 
 import React, { useState } from "react";
 
@@ -18,9 +19,9 @@ export const HoverEffect = ({
   }[];
   className?: string;
   VideoPlayerComponent?: React.ComponentType<{ path: string }>;
-  ButtonComponent?: React.ComponentType<any>;
+  ButtonComponent?: React.ComponentType<React.ComponentProps<typeof Button>>;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div
@@ -39,7 +40,7 @@ export const HoverEffect = ({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 shadow-md dark:bg-slate-800/[0.8] block rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-neutral-200 shadow-md dark:bg-slate-800/[0.8] block rounded-3xl pointer-events-none z-0"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -53,7 +54,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card className="shadow-[1px_1px_3px_1px_rgba(0,0,0,0.1)] dark:border dark:border-white/20 rounded-2xl">
+          <Card className="relative z-10 shadow-[1px_1px_3px_1px_rgba(0,0,0,0.1)] p-3 dark:border dark:border-white/20 rounded-2xl">
             {VideoPlayerComponent && <VideoPlayerComponent path={item.path} />}
             <CardDescription className="font-sans">{item.description}</CardDescription>
             {ButtonComponent ? (
