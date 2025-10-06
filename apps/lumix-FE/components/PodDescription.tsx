@@ -11,10 +11,10 @@ export const PodDescription = ({ podTitle, podDescription, activeMembers }: podD
     const ismobile = useIsMobile();
     return <div className="bg-gradient-to-r from-gray-50 to-green-50 dark:from-primary/10 dark:to-accent/10 px-8 py-2 items-center h-73px flex justify-between border-b border-border">
         <div>
-            <h1 className="text-2xl font-semibold text-balance">{podTitle}</h1>
+            <h1 className="text-xl font-semibold text-balance">{podTitle}</h1>
             <p className="text-sm text-muted-foreground mt-1 text-pretty">{podDescription}</p>
         </div>
-        <div className="rounded-2xl bg-green-500/50 px-2 text-white flex text-balance whitespace-nowrap">
+        <div className="rounded-2xl bg-green-500/30 px-2 text-white flex text-balance whitespace-nowrap">
             {activeMembers} {ismobile ? "Active" : "Active members"}
         </div>
 
