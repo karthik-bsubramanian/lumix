@@ -13,7 +13,7 @@ import { PodSideBar } from "@/components/PodSidebar";
 const PodPage = () => {
     const params = useParams();
     const podname = params.podname as string;
-    const [isSidebarOpen, setIsSideBarOpen] = useState(true);
+    const [isSidebarOpen, setIsSideBarOpen] = useState(false);
     return <div className="min-h-screen max-h-screen flex flex-col max-w-screen bg-background text-foreground">
         <header className="border-b border-border bg-card/10 backdrop-blur-sm">
             <div className="flex items-center justify-between px-6 py-2">
@@ -39,7 +39,7 @@ const PodPage = () => {
             <div className="flex-1 transition-all duration-300 ease-in-out">
                 <PodCanvas />
             </div>
-            <div className={`${isSidebarOpen ? "w-80" : "w-12"} border-1 border-border transition-all duration-300`}>
+            <div className={`${isSidebarOpen ? "w-80" : "w-12"} border-l border-border transition-all duration-300`}>
                 <PodSideBar isOpen={isSidebarOpen} onToggle={() => setIsSideBarOpen(!isSidebarOpen)} />
             </div>
         </div>
