@@ -9,10 +9,12 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { PodDescription } from "@/components/PodDescription";
 import { PodCanvas } from "@/components/PodCanvas";
 import { PodSideBar } from "@/components/PodSidebar";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PodPage = () => {
     const params = useParams();
     const podname = params.podname as string;
+    const isMobile = useIsMobile();
     const [isSidebarOpen, setIsSideBarOpen] = useState(false);
     return <div className="min-h-screen max-h-screen flex flex-col max-w-screen bg-background text-foreground">
         <header className="border-b border-border bg-card/10 backdrop-blur-sm">
@@ -36,15 +38,17 @@ const PodPage = () => {
         </div>
 
         <div className="flex-1 flex overflow-hidden">
-            <div className="flex-1 transition-all duration-300 ease-in-out">
-                <PodCanvas />
-            </div>
-            <div className={`${isSidebarOpen ? "w-80" : "w-12"} border-l border-border transition-all duration-300`}>
+            {!(isSidebarOpen && isMobile) && (
+                <div className="flex-1 transition-all duration-300 ease-in-out">
+                    <PodCanvas />
+                </div>
+            )}
+            <div className={`${isSidebarOpen ? (isMobile ? "w-full" : "w-80") : "w-12"} border-l border-border transition-all duration-300`}>
                 <PodSideBar isOpen={isSidebarOpen} onToggle={() => setIsSideBarOpen(!isSidebarOpen)} />
             </div>
         </div>
 
-    </div>
+    </div >
 }
 
 export default PodPage;
