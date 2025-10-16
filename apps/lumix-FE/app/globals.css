@@ -148,3 +148,31 @@
 @theme {
   --color-back: #37353E; /* Replace with your desired hex code */
 }
+
+/* Define custom utility for hiding scrollbar */
+@utility no-scrollbar {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE / Edge */
+  -ms-overflow-style: none;
+  /* Webkit browsers */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Or utility for custom thin scrollbar with custom width */
+@utility scrollbar-custom-thin {
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(100,100,100,0.5);
+    border-radius: 9999px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
