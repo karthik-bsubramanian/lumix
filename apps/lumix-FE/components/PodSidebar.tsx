@@ -1,4 +1,6 @@
 import { MessageSquare, Calendar, FolderOpen, X } from "lucide-react";
+import { PodChat } from "./PodChat";
+import { Separator } from "./ui/separator";
 interface PodSideBarProps {
     isOpen: boolean;
     onToggle: () => void;
@@ -7,23 +9,31 @@ interface PodSideBarProps {
 export const PodSideBar = ({ isOpen, onToggle }: PodSideBarProps) => {
     return (
         <div className="h-full w-full justify-center bg-card/50">
-            <div className="p-2">
+            <div className="p-2 h-full">
                 {isOpen ? (
-                    <div className="flex items-center gap-2 justify-between w-full ">
-                        <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
-                            <MessageSquare className="h-5 w-5" />
-                            <span>Chat</span>
+                    <div className="flex flex-col h-full">
+                        <div>
+                            <div className="flex items-center gap-2 justify-between w-full">
+                                <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
+                                    <MessageSquare className="h-5 w-5" />
+                                    <span>Chat</span>
+                                </div>
+                                <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
+                                    <Calendar className="h-5 w-5" />
+                                    <span>Schedule</span>
+                                </div>
+                                <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
+                                    <FolderOpen className="h-5 w-5" />
+                                    <span>Files</span>
+                                </div>
+                                <div className="flex flex-1 items-center justify-center rounded-md hover:bg-red-500/80 p-1 cursor-pointer">
+                                    <X onClick={onToggle} />
+                                </div>
+                            </div>
+                            <Separator orientation="horizontal" className="my-2" />
                         </div>
-                        <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
-                            <Calendar className="h-5 w-5" />
-                            <span>Schedule</span>
-                        </div>
-                        <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
-                            <FolderOpen className="h-5 w-5" />
-                            <span>Files</span>
-                        </div>
-                        <div className="flex flex-1 items-center justify-center rounded-md hover:bg-red-500/80 p-1 cursor-pointer">
-                            <X onClick={onToggle}/>
+                        <div className="flex-1 min-h-0">
+                            <PodChat />
                         </div>
                     </div>
                 ) :

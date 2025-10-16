@@ -4,7 +4,7 @@ import { Maximize2, Minimize2, PresentationIcon, TvMinimalPlayIcon } from "lucid
 import { Switch } from "./ui/switch"
 import { Button } from "./ui/button"
 import { useState } from "react"
-import { PodCreateCanvas } from "./PodCreateCanvas"
+import { PodCreateCanvas } from "./PodCreateCanvasmsg"
 
 export const PodCanvas = ()=>{
     const [isCanvasFullscreen, setIsCanvasFullscreen] = useState(false);
