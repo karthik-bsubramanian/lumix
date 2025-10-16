@@ -1,12 +1,17 @@
+"use client";
+
 import { MessageSquare, Calendar, FolderOpen, X } from "lucide-react";
 import { PodChat } from "./PodChat";
 import { Separator } from "./ui/separator";
+import { useState } from "react";
+import { Button } from "./ui/button";
 interface PodSideBarProps {
     isOpen: boolean;
     onToggle: () => void;
 }
 
 export const PodSideBar = ({ isOpen, onToggle }: PodSideBarProps) => {
+    const [activeTab, setActiveTab] = useState<"chat" | "files" | "schedule">("chat");
     return (
         <div className="h-full w-full justify-center bg-card/50">
             <div className="p-2 h-full">
@@ -14,26 +19,40 @@ export const PodSideBar = ({ isOpen, onToggle }: PodSideBarProps) => {
                     <div className="flex flex-col h-full">
                         <div>
                             <div className="flex items-center gap-2 justify-between w-full">
-                                <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
+                                <Button
+                                    variant="ghost"
+                                    size="sm" 
+                                    className={`flex flex-1 gap-1 items-center justify-center p-2 ${ activeTab=="chat" ? "bg-blue-400" : ""} rounded-md hover:bg-green-400/50 cursor-pointer`}
+                                    onClick={() => setActiveTab("chat")}>
                                     <MessageSquare className="h-5 w-5" />
                                     <span>Chat</span>
-                                </div>
-                                <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
+                                </Button>
+                                <Button
+                                    className={`flex flex-1 gap-1 items-center justify-center p-2 rounded-md ${ activeTab=="schedule" ? "bg-blue-400" : ""} hover:bg-green-400/50 cursor-pointer`}
+                                    size="sm"
+                                    variant="ghost"
+                                    onClick={() => setActiveTab("schedule")}>
                                     <Calendar className="h-5 w-5" />
                                     <span>Schedule</span>
-                                </div>
-                                <div className="flex flex-1 gap-1 items-center justify-center p-2 rounded-md hover:bg-green-400/50 cursor-pointer">
+                                </Button>
+                                <Button
+                                    className={`flex flex-1 gap-1 items-center justify-center p-2 rounded-md ${ activeTab=="files" ? "bg-blue-400" : ""} hover:bg-green-400/50 cursor-pointer`}
+                                    size="sm"
+                                    variant="ghost"
+                                    onClick={() => setActiveTab("files")}>
                                     <FolderOpen className="h-5 w-5" />
                                     <span>Files</span>
-                                </div>
-                                <div className="flex flex-1 items-center justify-center rounded-md hover:bg-red-500/80 p-1 cursor-pointer">
+                                </Button>
+                                <Button variant="ghost" size="sm" className="flex flex-1 items-center justify-center rounded-md hover:bg-red-500/80 p-1 cursor-pointer">
                                     <X onClick={onToggle} />
-                                </div>
+                                </Button>
                             </div>
                             <Separator orientation="horizontal" className="my-2" />
                         </div>
                         <div className="flex-1 min-h-0">
-                            <PodChat />
+                            {activeTab == "chat" &&
+                                <PodChat />
+                            }
                         </div>
                     </div>
                 ) :
