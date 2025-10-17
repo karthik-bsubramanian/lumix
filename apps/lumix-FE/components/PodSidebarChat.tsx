@@ -2,7 +2,7 @@ import { AvatarFallback } from "@radix-ui/react-avatar"
 import { Avatar, AvatarImage } from "./ui/avatar"
 import { ScrollArea } from "./ui/scroll-area"
 
-export const PodChat = () => {
+export const PodSidebarChat = () => {
     const chatMessages = [
         {
             id: 1,
